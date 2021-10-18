@@ -1,6 +1,6 @@
 nome;matricula;data Nascimento;email;cpf;telefone;endereco;cidade;estado;cep
 jose da silva;20212789456;07/10/2000;ze@gmail.com;12345678910;2198989898;rua clarimundo de melo;rio de janeiro;rj;22222222
 antonio;20211528741;08/10/2001;tonho@gmail.com;987465432122;21990000099;rua clarimundo de melo 857;rio de janeiro;rj;20123456
-neusa;20212777999;07/10/2000;neusa@gmail.com;987465432122;13053740000;1601 Biscayne Boulevard,;Miami;Florida;33132
-Martinson Lima de Freitas;1545851213;29/11/1974;martinson.freitas@gmail.com;00900731770;21992995201;Rua Ferreira Pontes, 688;Rio de Janeiro;RJ;20541280
-Kaká Oliveira;20212789456;31/12/1975;kaka@gmail.com;00900734795;22251191;Rua Barão de Mesquita, 715;Rio de Janeiro;RJ;205415-280
+neusa;20212777999;07/10/2000;neusa@gmail.com;987465432122;13053740000;1601 Biscayne Boulevard,;São Paulo;SP;01153 000
+Martinson;1545851213;29/11/1974;martinson.freitas@gmail.com;00900731770;21992995201;Rua Ferreira Pontes, 688;Rio de Janeiro;RJ;20541280
+Kaká Oliveira;20212789456;31/12/1975;kaka@gmail.com;00900734795;22251191;Rua Barão de Mesquita, 715;Fortaleza;CE;60155-000

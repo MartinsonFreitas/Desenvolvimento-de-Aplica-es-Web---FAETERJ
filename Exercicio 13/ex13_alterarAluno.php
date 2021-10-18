@@ -5,7 +5,7 @@
 //  Vou escrever os dados do formulário em um arquivo de dados
 $linhas = array();
 $colunas = array();
-$arquivoAluno = fopen("alunosNovos.txt", "r") or die("Erro na abertura do arquivo");
+$arquivoAluno = fopen("alunoNovo.txt", "r") or die("Erro na abertura do arquivo");
 $x = 0;
 $cabecalho =  fgets($arquivoAluno);
 $colunas = explode(";", $cabecalho);

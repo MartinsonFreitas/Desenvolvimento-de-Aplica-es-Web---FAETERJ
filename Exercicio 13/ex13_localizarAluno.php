@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $colunas = array();
 
     // abrindo o arquivo
-    $arquivoAluno = fopen("alunosNovos.txt", "r") or die("Erro na abertura do arquivo");
+    $arquivoAluno = fopen("alunoNovo.txt", "r") or die("Erro na abertura do arquivo");
 
     // declarando a variável para a leitura da linha
      $x = 0;
@@ -60,11 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $cep        = $colunas1[9];
 
             }
-
         }
-
-
-
     }
 ?>
 
