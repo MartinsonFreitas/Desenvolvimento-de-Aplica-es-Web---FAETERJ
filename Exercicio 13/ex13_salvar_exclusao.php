@@ -44,7 +44,7 @@ if ($arquivo) {
 
         // busca na linha atual o conteudo que vai ser alterado
         if(preg_match("/$matricula/", $linha)) {
-            $string .= str_replace($linha_old, $linha_nova, $linha);
+            $string .= str_replace($linha_old, "", $linha);
             //$atualizando = str_replace($linha_old, $linha_nova, $linhas);
 
         } else {
@@ -65,7 +65,7 @@ if ($arquivo) {
 
     // reescreve o conteudo dentro do arquivo
     if (!fwrite($arquivo, $string)) die('Não foi possível atualizar o arquivo.');
-    echo "<h1>Alterações Salvas com sucesso</h1>";
+    echo "<h1>Exclusão efetuada com sucesso</h1>";
     fclose($arquivo);
 }
 
@@ -149,3 +149,4 @@ while (!feof($arquivoAluno)) {
 
 </body>
 </html>
+

@@ -21,7 +21,7 @@
 <head>
 </head>
 <body>
-<h1>Listar Aluno</h1>
+<h1>Listar Alunos Cadastrados</h1>
 <br>
 <a href="ex13_inserirAlunoArquivoAppend.php">Inserir Aluno</a><br>
 <a href="ex13_alterarAluno.php">Alterar Aluno</a><br>
@@ -47,6 +47,11 @@
 
         <?php
         foreach ($linhas as $linha) {
+
+            if ($linha==null) {
+                break;
+            } else {
+
             echo "<tr>";
             echo "<td style='border: 1px solid;'> $x </td>";
             $colunas1 = array();
@@ -56,7 +61,10 @@
                 echo "<td style='border: 1px solid;'>$coluna</td>";
             }
             echo "</tr>";
-            $x++;
+
+                $x++;
+            }
+
         }
         ?>
 </table>

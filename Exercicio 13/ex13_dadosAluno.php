@@ -6,27 +6,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //  $x = $_POST["x"];
 //  echo $matricula . "<br>";
 }
-    // Declarando os array
-    $linhas = array();
-    $colunas = array();
+// Declarando os array
+$linhas = array();
+$colunas = array();
 
-    // abrindo o arquivo
-    $arquivoAluno = fopen("alunoNovo.txt", "r") or die("Erro na abertura do arquivo");
+// abrindo o arquivo
+$arquivoAluno = fopen("alunoNovo.txt", "r") or die("Erro na abertura do arquivo");
 
-    // declarando a variável para a leitura da linha
-     $x = 0;
+// declarando a variável para a leitura da linha
+$x = 0;
 
-    //pegando o cabeçalho das colunas
-    $cabecalho = fgets($arquivoAluno);
+//pegando o cabeçalho das colunas
+$cabecalho = fgets($arquivoAluno);
 
-    //separando as colunas
-    $colunas = explode(";", $cabecalho);
+//separando as colunas
+$colunas = explode(";", $cabecalho);
 
-    while (!feof($arquivoAluno)) {
-        $linhas[] = fgets($arquivoAluno);
-    }
+while (!feof($arquivoAluno)) {
+    $linhas[] = fgets($arquivoAluno);
+}
 
-    fclose($arquivoAluno);
+fclose($arquivoAluno);
 
 ?>
 
@@ -39,14 +39,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <?php
 
-    foreach ($linhas as $linha) {
+foreach ($linhas as $linha) {
 
-        $colunas1 = array();
-        $colunas1 = explode(";", $linha);
+    $colunas1 = array();
+    $colunas1 = explode(";", $linha);
 
-        foreach ($colunas1 as $coluna){
+    foreach ($colunas1 as $coluna){
 
-            if ($coluna == $matricula ){
+        if ($coluna == $matricula ){
 
             $nome       = $colunas1[0];
             $matricula  = $colunas1[1];
@@ -59,13 +59,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $estado     = $colunas1[8];
             $cep        = $colunas1[9];
 
-            }
         }
     }
+}
 ?>
-
-<form action="ex13_salvar_alteracoes.php" method=POST>
-    <!-- form action="alterar_string.php" method=POST -->
 
     Matricula: <input type=text name="matricula" value="<?php echo $matricula ?>"> <br><br>
     nome: <input type=text name="nome" value="<?php echo $nome ?>"> <br><br>
@@ -78,12 +75,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     estado: <input type=text name="estado" value="<?php echo $estado ?>"> <br><br>
     cep: <input type=text name="cep" value="<?php echo $cep ?>"> <br><br>
     <?php
-        $linha_old = $nome . ";" . $matricula . ";" . $dtNasc . ";" . $email . ";" . $cpf . ";" . $telefone;
-        $linha_old = $linha_old . ";" . $endereco . ";" . $cidade . ";" . $estado . ";" . $cep ;
+    $linha_old = $nome . ";" . $matricula . ";" . $dtNasc . ";" . $email . ";" . $cpf . ";" . $telefone;
+    $linha_old = $linha_old . ";" . $endereco . ";" . $cidade . ";" . $estado . ";" . $cep ;
     ?>
-    Linha a ser alterada: <input type='text' value="<?php echo $linha_old ?>" name="linha_old"><br><br>
 
-    <input type="submit" value=" Salvar alterações ">
 </form>
 
 <br><br>
@@ -98,4 +93,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </body>
 </html>
+
 

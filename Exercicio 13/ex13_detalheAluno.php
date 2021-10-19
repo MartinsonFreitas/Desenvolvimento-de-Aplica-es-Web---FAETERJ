@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <?php
 
@@ -24,9 +24,9 @@ fclose($arquivoAluno);
 </head>
 <body>
 
-<h1>Alterar dados do Aluno</h1>
+<h1>Mostrar dados Aluno</h1>
 <br>
-<form action="ex13_localizarAluno.php" method="post">
+<form action="ex13_dadosAluno.php" method="post">
     Matrícula: <input type=text name="searchMat" value="">
     <input type="submit"  value="Localizar">
 </form>
@@ -56,7 +56,6 @@ fclose($arquivoAluno);
         if ($linha == null) {
             break;
         } else {
-
             echo "<tr>";
             echo "<td style='border: 1px solid;'> $x </td>";
             $colunas1 = array();
@@ -86,3 +85,4 @@ fclose($arquivoAluno);
 <body>
 </body>
 </html>
+
