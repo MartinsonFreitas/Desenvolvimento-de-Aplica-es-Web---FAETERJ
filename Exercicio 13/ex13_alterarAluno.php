@@ -2,21 +2,22 @@
 
 <?php
 
-//  Vou escrever os dados do formulário em um arquivo de dados
-$linhas = array();
-$colunas = array();
-$arquivoAluno = fopen("alunoNovo.txt", "r") or die("Erro na abertura do arquivo");
-$x = 0;
-$cabecalho =  fgets($arquivoAluno);
-$colunas = explode(";", $cabecalho);
-//    echo $colunas[0] . ";" . $colunas[1] . ";" . $colunas[2] . ";" . $colunas[3];
-//    echo "<br>imprimi parte do cabecalho<br>";
-while (!feof($arquivoAluno)) {
-    $linhas[] = fgets($arquivoAluno);
-//       echo $linhas[$x] . "<br>";
-//        $x++;
-}
-fclose($arquivoAluno);
+    //  Vou escrever os dados do formulário em um arquivo de dados
+    $linhas = array();
+    $colunas = array();
+    $arquivoAluno = fopen("alunoNovo.txt", "r") or die("Erro na abertura do arquivo");
+    $x = 0;
+    $cabecalho =  fgets($arquivoAluno);
+    $colunas = explode(";", $cabecalho);
+    //    echo $colunas[0] . ";" . $colunas[1] . ";" . $colunas[2] . ";" . $colunas[3];
+    //    echo "<br>imprimi parte do cabecalho<br>";
+    while (!feof($arquivoAluno)) {
+        $linhas[] = fgets($arquivoAluno);
+    //       echo $linhas[$x] . "<br>";
+    //        $x++;
+    }
+    fclose($arquivoAluno);
+
 ?>
 <!DOCTYPE html>
 <html>

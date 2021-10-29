@@ -1,32 +1,33 @@
 ﻿<?php
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $matricula = $_POST["searchMat"];
-//  $x = $_POST["x"];
-//  echo $matricula . "<br>";
-}
-// Declarando os array
-$linhas = array();
-$colunas = array();
+        $matricula = $_POST["searchMat"];
+    //  $x = $_POST["x"];
+    //  echo $matricula . "<br>";
+    }
 
-// abrindo o arquivo
-$arquivoAluno = fopen("alunoNovo.txt", "r") or die("Erro na abertura do arquivo");
+    // Declarando os array
+    $linhas = array();
+    $colunas = array();
 
-// declarando a variável para a leitura da linha
-$x = 0;
+    // abrindo o arquivo
+    $arquivoAluno = fopen("alunoNovo.txt", "r") or die("Erro na abertura do arquivo");
 
-//pegando o cabeçalho das colunas
-$cabecalho = fgets($arquivoAluno);
+    // declarando a variável para a leitura da linha
+    $x = 0;
 
-//separando as colunas
-$colunas = explode(";", $cabecalho);
+    //pegando o cabeçalho das colunas
+    $cabecalho = fgets($arquivoAluno);
 
-while (!feof($arquivoAluno)) {
-    $linhas[] = fgets($arquivoAluno);
-}
+    //separando as colunas
+    $colunas = explode(";", $cabecalho);
 
-fclose($arquivoAluno);
+    while (!feof($arquivoAluno)) {
+        $linhas[] = fgets($arquivoAluno);
+    }
+
+    fclose($arquivoAluno);
 
 ?>
 
@@ -65,7 +66,6 @@ foreach ($linhas as $linha) {
 ?>
 
 <form action="ex13_salvar_exclusao.php" method=POST>
-    <!-- form action="alterar_string.php" method=POST -->
 
     Matricula: <input type=text name="matricula" value="<?php echo $matricula ?>"> <br><br>
     nome: <input type=text name="nome" value="<?php echo $nome ?>"> <br><br>
@@ -77,23 +77,35 @@ foreach ($linhas as $linha) {
     cidade: <input type=text name="cidade" value="<?php echo $cidade ?>"> <br><br>
     estado: <input type=text name="estado" value="<?php echo $estado ?>"> <br><br>
     cep: <input type=text name="cep" value="<?php echo $cep ?>"> <br><br>
+
     <?php
-    $linha_old = $nome . ";" . $matricula . ";" . $dtNasc . ";" . $email . ";" . $cpf . ";" . $telefone;
-    $linha_old = $linha_old . ";" . $endereco . ";" . $cidade . ";" . $estado . ";" . $cep ;
+    /* Sem necessidade, pois vai ser passado pelo método _POST
+        $linha_old = $nome . ";" . $matricula . ";" . $dtNasc . ";" . $email . ";" . $cpf . ";" . $telefone;
+        $linha_old = $linha_old . ";" . $endereco . ";" . $cidade . ";" . $estado . ";" . $cep ;
+    */
     ?>
-    Linha a ser alterada: <input type='text' value="<?php echo $linha_old ?>" name="linha_old"><br><br>
+
+    <!-- Não é necessário mostrar ...
+
+    Linha a ser alterada: <input type='text' value="<?php // echo $linha_old ?>" name="linha_old">
+
+    -->
+
+    <br><br>
 
     <input type="submit" value=" Excluir Aluno ">
 </form>
 
 <br><br>
-<section style="text-align: center;">
-    <a href="ex13_inserirAlunoArquivoAppend.php">Inserir Aluno</a> |
-    <a href="ex13_alterarAluno.php">Alterar Aluno</a> |
-    <a href="ex13_listarAlunos.php">Listar Alunos</a> |
-    <a href="ex13_excluirAluno.php">Excluir Aluno</a> |
-    <a href="ex13_detalheAluno.php">Detalhe de Aluno</a>
-</section>
+
+    <section style="text-align: center;">
+        <a href="ex13_inserirAlunoArquivoAppend.php">Inserir Aluno</a> |
+        <a href="ex13_alterarAluno.php">Alterar Aluno</a> |
+        <a href="ex13_listarAlunos.php">Listar Alunos</a> |
+        <a href="ex13_excluirAluno.php">Excluir Aluno</a> |
+        <a href="ex13_detalheAluno.php">Detalhe de Aluno</a>
+    </section>
+
 <br><br>
 
 </body>
