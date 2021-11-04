@@ -4,10 +4,12 @@
 </head>
 <body>
 <h1>3DAW</h1>
+
 <?php
 function formataNome($nome, $sobreNome) {
     echo $nome . " " . $sobreNome;
 }
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $x = $_POST["var1"];
     $y = $_POST["var2"];

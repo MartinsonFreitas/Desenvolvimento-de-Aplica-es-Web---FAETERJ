@@ -1,12 +1,15 @@
 ﻿<?php
+
 echo (sqrt(4));
 echo "<br>";
 echo 4**2;
 echo "<br>";
 echo "<br>";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
  }
+
 ?>
 <!DOCTYPE html>
 <html>
