@@ -1,6 +1,13 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Exercício 14 - CRUD com SGDB">
+	<meta name="keywords" content="HTML, CSS, PHP">
+	<meta name="author" content="Martinson Freitas">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>FAETERJ - 3DAW - CRUD + SGDB</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
