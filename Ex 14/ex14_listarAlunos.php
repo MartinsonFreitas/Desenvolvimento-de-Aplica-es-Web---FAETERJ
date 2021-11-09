@@ -7,14 +7,11 @@
 
 <header>
 	<section id="menu">
-		<h1>3DAW - CRUD COM SGBD MySql</h1>
+		<h1>3DAW - CRUD COM SGBD MySql - READ</h1>
 		<br>
 		<a href="ex14_home.php">Início</a> |
-		<a href="ex14_inserirAluno.php">Inserir Aluno</a> |
-		<a href="ex14_alterarAluno.php">Alterar Aluno</a> |
-		<a href="ex14_listarAlunos.php">Listar Alunos</a> |
-		<a href="ex14_excluirAluno.php">Excluir Aluno</a> |
-		<a href="ex14_detalheAluno.php">Detalhe de Aluno</a>
+		<a href="ex14_inserirAluno.php">Inserir Aluno</a> |		
+		<a href="ex14_listarAlunos.php">Listar Alunos</a>		
 	</section>
 </header>
 
@@ -24,11 +21,9 @@
 <table>
     <th colspan="5">Lista de alunos cadastrados</th>
     <tr >
-        <td style='border: 1px solid #ccc; width: 22%;'>Matrícula</td>
-        <td style='border: 1px solid #ccc; width: 22%;'>Nome</td>
-        <td style='border: 1px solid #ccc; width: 22%;'>CPF</td>
-        <td style='border: 1px solid #ccc; width: 22%;'>E-mail</td>
-		<td style='border: 1px solid #ccc; width: 12%;'>Ação</td>
+        <td style='border: 1px solid #ccc; width: 25%;'>Matrícula</td>
+        <td style='border: 1px solid #ccc; width: 25%;'>Nome</td>
+		<td colspan="3" style='border: 1px solid #ccc; width: 50%;'>Ação</td>
     </tr>
 
 <?php
@@ -67,14 +62,22 @@
 
         echo "
         <tr>
-            <td style='border: 1px solid #ccc; width: 22%;'>$matricula</td>
-            <td style='border: 1px solid #ccc; width: 22;'>$nome</td>
-            <td style='border: 1px solid #ccc; width: 22%;'>$cpf</td>
-            <td style='border: 1px solid #ccc; width: 22%;'>$email</td>
+            <td style='border: 1px solid #ccc; width: 25%;'>$matricula</td>
+            <td style='border: 1px solid #ccc; width: 25;'>$nome</td>
 			
-			<td style='border: 1px solid #ccc; width: 12%;'>
+			<td style='border: 1px solid #ccc; width: 17%;'>
 				<a href='ex14_alterarAluno.php?matricula=$matricula'>
 					Alterar
+				</a>
+			</td>
+			<td style='border: 1px solid #ccc; width: 17%;'>
+				<a href='ex14_excluirAluno.php?matricula=$matricula'>
+					Excluir
+				</a>
+			</td>
+			<td style='border: 1px solid #ccc; width: 16%;'>
+				<a href='ex14_detalheAluno.php?matricula=$matricula'>
+					Detalhes
 				</a>
 			</td>
         </tr>

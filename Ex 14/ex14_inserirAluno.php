@@ -1,11 +1,13 @@
 ﻿<?php
 
+$mensagem = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$matricula = $_POST["matricula"];
     $nome = $_POST["nome"];    
     $email = $_POST["email"];
     $cpf = $_POST["cpf"];
-    	
+	    	
 	//  Vou escrever os dados do formulário no banco de dados
     // Estabelecendo conexão com BD
     // credenciais de acesso
@@ -30,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$row = mysqli_fetch_assoc($result);
 
 	if($row['total'] == 1) {
-		echo "Matrícula já cadastrada! <br>";
+		$mensagem = "Matrícula já cadastrada! <br>";
 		
 		} else {
 		//echo "Matrícula não encontrada... Preparando para cadastrar!<br>";
@@ -44,6 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		//	echo "$insert <br>";
 		// Validação se a inclusao foi efetuada com sucesso
 		mysqli_query($conn, $insert) or die (mysqli_error($conn));
+		
+		$mensagem = "Aluno cadstrado com sucesso!";
 		
 		}
 		//Fechando a conexão com o banco de dados
@@ -63,14 +67,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <header>
 	<section id="menu">
-		<h1>3DAW - CRUD COM SGBD MySql</h1>
+		<h1>3DAW - CRUD COM SGBD MySql - CREATE</h1>
 		<br>
 		<a href="ex14_home.php">Início</a> |
 		<a href="ex14_inserirAluno.php">Inserir Aluno</a> |
-		<a href="ex14_alterarAluno.php">Alterar Aluno</a> |
-		<a href="ex14_listarAlunos.php">Listar Alunos</a> |
-		<a href="ex14_excluirAluno.php">Excluir Aluno</a> |
-		<a href="ex14_detalheAluno.php">Detalhe de Aluno</a>
+		<a href="ex14_listarAlunos.php">Listar Alunos</a>		
 	</section>
 </header>
 
@@ -88,9 +89,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<br><br>
 		<input type="submit" value=" Inserir...">
 	</form>
-<br>
-
 </section>
+
+	<section>
+		<?php echo "<h1>$mensagem</h1> <br>" ?>
+	</section>
+	
 <br>
 <br>
 

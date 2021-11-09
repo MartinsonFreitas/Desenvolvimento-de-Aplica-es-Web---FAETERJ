@@ -11,10 +11,7 @@
 		<br>
 		<a href="ex14_home.php">Início</a> |
 		<a href="ex14_inserirAluno.php">Inserir Aluno</a> |
-		<a href="ex14_alterarAluno.php">Alterar Aluno</a> |
-		<a href="ex14_listarAlunos.php">Listar Alunos</a> |
-		<a href="ex14_excluirAluno.php">Excluir Aluno</a> |
-		<a href="ex14_detalheAluno.php">Detalhe de Aluno</a>
+		<a href="ex14_listarAlunos.php">Listar Alunos</a>
 	</section>
 
 

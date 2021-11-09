@@ -32,6 +32,16 @@ section {
 	line-height: 28px;
 }
 
+article {
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	font-size: 1.2em;	
+	text-align: justify;
+	line-height: 28px;
+}
+
 table {
 	font: normal normal 14px Verdana, Arial, Helvetica, sans-serif;
 	text-align: justify;
@@ -67,7 +77,8 @@ form input {
    -moz-border-radius:5px;
    -o-border-radius:5px;
    -ms-border-radius:5px;
-   border-radius:5px; }
+   border-radius:5px; 
+   }
 	
 form input[type="text"]:hover {
    background-color:#e1e1e1;
