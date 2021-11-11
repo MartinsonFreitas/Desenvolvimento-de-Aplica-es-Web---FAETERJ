@@ -88,7 +88,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <section id="principal">
 	<p>
-	Cadastramento de usuários no projeto.
+	Vamos cadastrar as perguntas a serem usadas no projeto, lembrado que:
+	<ul>
+		<li>A Pergunta terá Texto máximo de 200 caracteres...</li>
+		<li>Quantidade de Pontos (1 a 100)</li>
+		<li>Grau de dificuldade (fácil, média, difícil e muito difícil).</li>	
+	</ul>
+	
 	</p>
 	
 	<form action="AV1_cadastroPerguntas.php" method=POST>
@@ -98,10 +104,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<p>Pontuação: <input type=text name="pontuacao"> </p>
 		<p>Dificuldade: <br>
 			<select name="dificuldade" type="text">
-				<option value=""> Baixa </option>
-				<option value="1"> Média </option>
-				<option value="2"> Dificil </option>
-				<option value="3"> Muito Dificil </option>				
+				<option value="Baixa"> Baixa </option>
+				<option value="Media"> Média </option>
+				<option value="Dificil"> Dificil </option>
+				<option value="Muito Dificil"> Muito Dificil </option>				
 			</select>		
 		</p>
 		
@@ -110,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	</form>
 
 
-	<section style="width: 100%;">
+	<section style="width: 100%; text-align= center;">
 		<?php echo "<h1>$mensagem</h1> <br>" ?>
 	</section>
 	
@@ -123,12 +129,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<table style="width: 100%;">
 		<th colspan="5">Lista de perguntas cadastradas</th>
 		<tr >
-			<td style='border: 1px solid #ccc; width: 25%;'>Id</td>
-			<td style='border: 1px solid #ccc; width: 25%;'>Pergunta</td>
-			<td style='border: 1px solid #ccc; width: 25%;'>Resposta</td>
-			<td style='border: 1px solid #ccc; width: 25%;'>Pontuação</td>
-			<td style='border: 1px solid #ccc; width: 25%;'>Dificuldade</td>
-			<td colspan="3" style='border: 1px solid #ccc; width: 50%;'>Ação</td>
+			<td style='border: 1px solid #ccc; width: 5%;'>Id</td>
+			<td style='border: 1px solid #ccc; width: 50%;'>Pergunta</td>
+			<td colspan="3" style='border: 1px solid #ccc; width: 45%;'>Ação</td>
 		</tr>
 <?php
     // Estabelecendo conexão com BD
@@ -167,20 +170,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         echo "
         <tr>
-            <td style='border: 1px solid #ccc; width: 25%;'>$id</td>
-            <td style='border: 1px solid #ccc; width: 25;'>$pergunta</td>
+            <td style='border: 1px solid #ccc; width: 5%;'>$id</td>
+            <td style='border: 1px solid #ccc; width: 50;'>$pergunta</td>
 			
-			<td style='border: 1px solid #ccc; width: 17%;'>
+			<td style='border: 1px solid #ccc; width: 15%;'>
 				<a href='AV1_alterarPergunta.php?id=$id'>
 					Alterar
 				</a>
 			</td>
-			<td style='border: 1px solid #ccc; width: 17%;'>
+			<td style='border: 1px solid #ccc; width: 15%;'>
 				<a href='AV1_excluirPergunta.php?id=$id'>
 					Excluir
 				</a>
 			</td>
-			<td style='border: 1px solid #ccc; width: 16%;'>
+			<td style='border: 1px solid #ccc; width: 15%;'>
 				<a href='AV1_detalhePergunta.php?id=$id'>
 					Detalhes
 				</a>

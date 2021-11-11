@@ -41,7 +41,7 @@ Neste primeiro momento será desenvolvido somente o cadastro Usuários, Pergunta
 </p>
 <p>
 Criar as funcionalidades de Criar Pergunta, alterar Pergunta, listar todas Pergunta, listar uma Pergunta e excluir Pergunta.
-O Pergunta terá Texto Pergunta, Quantidade de Pontos (1 a 100) e grau de dificuldade (fácil, média, difícil e muito difícil).
+A Pergunta terá Texto Pergunta, Quantidade de Pontos (1 a 100) e grau de dificuldade (fácil, média, difícil e muito difícil).
 </p>
 <p>
 Inicialmente usaremos arquivos texto(txt) para salvar as perguntas. As funcionalidades de Perguntas devem estar disponíveis por tela. O código deverá ser em PHP.
