@@ -1,7 +1,7 @@
 ﻿<?php
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-	$matricula = $_GET["matricula"];
+	$id = $_GET["id"];
     	
     // Estabelecendo conexão com BD
     // credenciais de acesso
