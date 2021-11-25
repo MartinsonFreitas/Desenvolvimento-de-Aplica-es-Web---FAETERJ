@@ -3,7 +3,7 @@
 $mensagem = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	$id = $_POST["id"];
+	//$id = $_POST["id"];
     $pergunta = $_POST["pergunta"];    
     $resposta = $_POST["resposta"];
     $pontuacao = $_POST["pontuacao"];
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		// Fim da Validação
 
 		// Faz a inserção na tabela perguntas passando os campos que o usuário digitar
-		$insert = "INSERT INTO perguntas (id, pergunta, resposta, pontuacao, dificuldade) VALUES ( '$id', '$pergunta','$resposta','$pontuacao','$dificuldade')";
+		$insert = "INSERT INTO perguntas ( pergunta, resposta, pontuacao, dificuldade) VALUES ( '$pergunta','$resposta','$pontuacao','$dificuldade')";
 
 		// Validação se a inclusao foi efetuada com sucesso
 		mysqli_query($conn, $insert) or die (mysqli_error($conn));
@@ -98,7 +98,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	</p>
 	
 	<form action="AV1_cadastroPerguntas.php" method=POST>
-		<p>Pergunta nº: <input type=text name="id"> </p>
 		<p>Pergunta: <textarea type=text name="pergunta"></textarea></p>
 		<p>Resposta: <textarea type=text name="resposta"></textarea></p>
 		<p>Pontuação: <input type=text name="pontuacao"> </p>
