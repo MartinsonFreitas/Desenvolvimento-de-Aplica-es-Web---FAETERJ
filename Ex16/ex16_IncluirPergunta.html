@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Incluir Pergunta</title>
+    <script>
+	
+        function PontoValido(vPonto) {
+            let pattern = /[0-9]+/;
+            return pattern.test(vPonto);
+        }
+
+        function FormValido(pPergunta, pResposta, pPontos, pGrau) {
+            let msg = "";
+            if (pPergunta == "") {
+                msg = "Pergunta não pode ser vazio. <br>";
+            }
+			if (pResposta == "") {
+                msg = "Resposta não pode ser vazio. <br>";
+            }
+            if (!PontoValido(pPontos)) {
+                msg += "Pontos deve ser numerico. <br>";
+            }
+            if (pGrau == "") {
+                msg += "Grau não pode ser vazio. <br>";
+            }
+            return msg;
+        }
+		
+        function ValidarForm() {
+            let objForm = document.getElementById("cadPergunta");
+            console.log("objForm: " + objForm.innerHTML);
+            let strPergunta = document.getElementById("pergunta").value;
+			let strResposta = document.getElementById("resposta").value;
+            let strPontos = document.getElementById("pontos").value;
+            let strGrau = document.getElementById("grau").value;
+            console.log("Pergunta: " + strPergunta + "Resposta: " + strResposta + " Pontos: " + strPontos + " Grau: " + strGrau);
+			/* editado 
+			
+				if (FormValido(strPergunta, strPontos, strGrau){
+					EnviarForm(strPergunta, strPontos, strGrau)
+				}
+						
+			*/			
+            let mensagem = FormValido(strPergunta, strResposta, strPontos, strGrau);
+
+            let objForm2 = {"pergunta":strPergunta, "resposta":strResposta, "pontos":strPontos, "grau":strGrau};
+            let objForm3 = {"pergunta":"alo?", "pontos":"2", "grau":"facil"};
+            let objJSON = JSON.stringify(objForm);
+            console.log("JSON: " + objJSON);
+
+            if (mensagem == "") {
+                console.log("Passou na validação");
+                EnviarForm(strPergunta, strResposta, strPontos, strGrau);
+            } else {
+                document.getElementById("msg").innerHTML = mensagem;
+            }
+        }
+		
+        function EnviarForm(ePergunta, eResposta, ePontos, eGrau) {
+            let xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log("Chegou resposta: " + this.responseText);
+                    document.getElementById("msg").innerHTML = this.responseText;
+					
+                    let objReturnJSON = JSON.parse(this.responseText);
+                    document.getElementById('retPergunta').innerHTML = objReturnJSON.pergunta;
+					document.getElementById('retResposta').innerHTML = objReturnJSON.resposta;
+                    document.getElementById('retPontos').innerHTML = objReturnJSON.pontos;
+                    document.getElementById('retGrau').innerHTML = objReturnJSON.grau;
+                }
+            }
+            xmlHttp.open("GET","http://daw/Ex16/ex16_IncluirPergunta.php?pergunta=" + ePergunta +
+                          "&resposta=" + eResposta + "&pontos=" + ePontos + "&grau=" + eGrau);
+            xmlHttp.send();
+            console.log("Enviei requisição");
+        }
+    </script>
+</head>
+<body>
+<h1>Inserir Pergunta</h1>
+<br>
+<a href="ex16_IncluirPergunta.html">Inserir Pergunta</a><br>
+<a href="ex16_alterarQualPergunta.html">Alterar Pergunta</a><br>
+<a href="ex16_listarPerguntas.html">Listar Perguntas</a><br>
+<a href="ex16_excluirPergunta.html">Excluir Pergunta</a><br>
+<a href="ex16_detalhePergunta.html">Detalhe de Pergunta</a><br>
+<br>
+<form action="" method=GET id="cadPergunta">
+    Pergunta: <input type=text name="pergunta" id="pergunta"> <br>
+	Resposta: <input type=text name="resposta" id="resposta"> <br>
+    Pontos: <input type=text name="pontos" id="pontos"> <br>
+    Grau de difilculdade: <input type=text name="grau" id="grau"> <br>
+    <br><br>
+    <input type="button" value="Inserir" onclick="ValidarForm()">
+</form>
+<br>
+<p id="msg"></p>
+<p id="retPergunta"></p>
+<p id="retResposta"></p>
+<p id="retPontos"></p>
+<p id="retGrau"></p>
+</body>
+</html>

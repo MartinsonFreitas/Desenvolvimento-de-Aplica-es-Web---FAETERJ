@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function buscarPerguntas() {
+            let xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log("Chegou resposta: " + this.responseText);
+                    document.getElementById("msg").innerHTML = this.responseText;
+                    let objReturnJSON = JSON.parse(this.responseText);
+                    for (i=0; i < objReturnJSON.length; i++) {
+                        let linha = objReturnJSON[i];
+                        // let divP1 = document.createElement("div");
+                        // let perg1 = document.createTextNode(objReturnJSON[i]);
+                        // divP1.appendChild(perg1);
+                        // divExistente = document.getElementById("lista");
+                        // document.body.insertBefore(divP1, divExistente);
+                        criarLinhaTabela(objReturnJSON[i]);
+                    }
+                }
+            }
+            xmlHttp.open("GET","http://localhost/3DAWManha2/ex16_listarPerguntas.php");
+            xmlHttp.send();
+            console.log("Enviei requisição");
+        }
+        function criarLinhaTabela(pobjReturnJSON) {
+            let tr = document.createElement("tr"); // cria o elemento tr
+            let td = document.createElement("td"); // cria o element td
+            let textnode = document.createTextNode(pobjReturnJSON.id);
+            td.appendChild(textnode); // adiciona o texto na td criada
+            tr.appendChild(td); // adiciona a td na tr
+
+            textnode = document.createTextNode(pobjReturnJSON.pergunta);
+            td.appendChild(textnode); // adiciona o texto na td criada
+            tr.appendChild(td); // adiciona a td na tr
+
+            textnode = document.createTextNode(pobjReturnJSON.pontos);
+            td.appendChild(textnode); // adiciona o texto na td criada
+            tr.appendChild(td); // adiciona a td na tr
+
+            textnode = document.createTextNode(pobjReturnJSON.grauDificuldade);
+            td.appendChild(textnode); // adiciona o texto na td criada
+            tr.appendChild(td); // adiciona a td na tr
+
+            var tr_fim = document.getElementById("ultimaLinha"); // pega a tr pelo id
+            // adiciona o elemento criado, a partir do nó pai (no caso <table>)
+            tr_fim.parentNode.insertBefore(tr, tr_fim);
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="Listar todos alunos" onclick="buscarPerguntas()">
+<p id="msg"></p>
+<div id="lista"></div>
+<table id="lst">
+    <tr id="ultimaLinha">
+        <td colspan="4"></td>
+    </tr>
+</table>
+</body>
+</html>
