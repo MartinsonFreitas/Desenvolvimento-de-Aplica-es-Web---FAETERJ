@@ -2,7 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+	<meta name="description" content="Exercício 14 - CRUD com SGDB">
+	<meta name="keywords" content="HTML, CSS, PHP">
+	<meta name="author" content="Martinson Freitas">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>FAETERJ - 3DAW - CRUD + SGDB + XMLHttpRequest</title>
+	
+    <link rel="stylesheet" href="estilo.css">
+	
     <script>
         function buscarPerguntas() {
             let xmlHttp = new XMLHttpRequest();
@@ -22,10 +30,11 @@
                     }
                 }
             }
-            xmlHttp.open("GET","http://localhost/3DAWManha2/ex16_listarPerguntas.php");
+            xmlHttp.open("GET","http://daw/Ex16/ex16_listarPerguntas.php");
             xmlHttp.send();
             console.log("Enviei requisição");
         }
+		
         function criarLinhaTabela(pobjReturnJSON) {
             let tr = document.createElement("tr"); // cria o elemento tr
             let td = document.createElement("td"); // cria o element td
@@ -37,11 +46,11 @@
             td.appendChild(textnode); // adiciona o texto na td criada
             tr.appendChild(td); // adiciona a td na tr
 
-            textnode = document.createTextNode(pobjReturnJSON.pontos);
+            textnode = document.createTextNode(pobjReturnJSON.pontuacao);
             td.appendChild(textnode); // adiciona o texto na td criada
             tr.appendChild(td); // adiciona a td na tr
 
-            textnode = document.createTextNode(pobjReturnJSON.grauDificuldade);
+            textnode = document.createTextNode(pobjReturnJSON.dificuldade);
             td.appendChild(textnode); // adiciona o texto na td criada
             tr.appendChild(td); // adiciona a td na tr
 
@@ -52,13 +61,37 @@
     </script>
 </head>
 <body>
-<input type="button" value="Listar todos alunos" onclick="buscarPerguntas()">
-<p id="msg"></p>
-<div id="lista"></div>
-<table id="lst">
-    <tr id="ultimaLinha">
-        <td colspan="4"></td>
-    </tr>
-</table>
+
+<header>
+	<section id="menu">
+			<h1>3DAW - CRUD COM XMLHttpRequest</h1>
+			<br>
+			<a href="ex16_IncluirPergunta.html">Inserir Pergunta</a> |
+			<a href="ex16_alterarPergunta.html">Alterar Pergunta</a> |
+			<a href="ex16_listarPerguntas.html">Listar Perguntas</a> |
+			<a href="ex16_excluirPergunta.html">Excluir Pergunta</a> |
+			<a href="ex16_detalhePergunta.html">Detalhe de Pergunta</a>
+	</section>
+</header>
+
+<br><br>
+
+<section id="informativo">
+	<input type="button" value="Listar todas as perguntas" onclick="buscarPerguntas()">
+	
+	<p id="msg"></p>
+	
+	<div id="lista"></div>
+	
+	<table id="lst" style="border: 1px solid;">
+		<tr id="ultimaLinha">
+			<td colspan="4"></td>
+		</tr>
+	</table>
+	
+</section>
+
+<br><br><br><br>
+
 </body>
 </html>

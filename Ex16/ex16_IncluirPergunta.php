@@ -21,10 +21,10 @@
     $servidor = "localhost";
     $usuario = "root";
     $senha = "";
-    $nomeBanco = "faeterj3dawmanha2";
+    $database = "faeterj3dawmanha2";
 	
 	// executando a conexão
-    $conn = new mysqli($servidor, $usuario, $senha, $nomeBanco);
+    $conn = new mysqli($servidor, $usuario, $senha, $database);
 	
     // Mensagem de erro se a conexão falhar
     if ($conn->connect_error){
